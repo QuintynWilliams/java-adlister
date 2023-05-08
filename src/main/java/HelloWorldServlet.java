@@ -1,3 +1,4 @@
+import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -16,7 +17,23 @@ import java.io.PrintWriter;
 public class HelloWorldServlet extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+        String name = req.getParameter("name");
+        resp.setContentType("text/html");
+        PrintWriter out = resp.getWriter();
+
+        if (name != null && !name.equals("")) {
+            out.println("<h3>Hello,&nbsp" + name);
+        } else {
+            out.print("<h3>Hello, World<h3>");
+        }
+
+//  TEST: TYPE http://localhost:8080/welcome?car=[something] in the URL path
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse res) throws IOException {
 
 //      Sets the type of output browser receives
         res.setContentType("text/html");
@@ -28,5 +45,5 @@ public class HelloWorldServlet extends HttpServlet {
         out.println("<h1> Hello, World!<!h1>");
 
     }
-}
 
+}
