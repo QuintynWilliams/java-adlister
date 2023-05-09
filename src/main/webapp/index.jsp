@@ -7,7 +7,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%-- Declaration, JSP variable can be declared here --%>
-<%! int count = -2; %>
+<%! int count = 0; %>
 <% count += 1; %>
 
 <html>
