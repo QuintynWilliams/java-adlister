@@ -10,10 +10,26 @@
 
     <div class="container">
         <c:if test="${user}">
-            <h1>Welcome, ${user.username}!</h1>
-            <h1>Welcome, ${user.email}!</h1>
+            <h1>Welcome, <span class="text-primary">${user.username}</span>!</h1>
+            <p class="text-secondary">${user.email}</p>
         </c:if>
-
+<%--
+<form action="/profile" method="post">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input id="email" name="email" class="form-control" type="text">
+            </div>
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input id="username" name="username" class="form-control" type="text">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input id="password" name="password" class="form-control" type="password">
+            </div>
+            <input type="submit" class="btn btn-block btn-primary">
+        </form>
+--%>
 
     </div>
 
