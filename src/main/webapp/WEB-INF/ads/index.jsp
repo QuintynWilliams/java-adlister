@@ -5,19 +5,39 @@
     <jsp:include page="/WEB-INF/partials/head.jsp">
         <jsp:param name="title" value="Viewing All The Ads" />
     </jsp:include>
+
+    <style>
+        .card {
+            width: 18rem;
+        }
+
+        @media (max-width: 768px) {
+            .card {
+                width: 100%;
+            }
+        }
+
+    </style>
 </head>
 <body>
-<jsp:include page="/WEB-INF/partials/navbar.jsp" />
+<jsp:include page="/WEB-INF/partials/logout-navbar.jsp" />
 
 <div class="container">
-    <h1>Here Are all the ads!</h1>
+    <h1 class="mb-5">Here Are all the ads!</h1>
 
-    <c:forEach var="ad" items="${ads}">
-        <div class="col-md-6">
-            <h2>${ad.title}</h2>
-            <p>${ad.description}</p>
-        </div>
-    </c:forEach>
+    <div class="d-flex justify-content-center flex-wrap bg-body-secondary rounded overflow-y overflow-scroll"
+         style="height: 80vh;">
+        <c:forEach var="ad" items="${ads}">
+            <div class="card m-3">
+                <img src="https://placehold.co/150x100" class="card-img-top" alt="${ad.id}">
+                <div class="card-body">
+                    <h5 class="card-title">${ad.title}</h5>
+                    <p class="card-text">${ad.description}</p>
+                    <a href="#" class="btn btn-primary">Details</a>
+                </div>
+            </div>
+        </c:forEach>
+    </div>
 </div>
 
 </body>

@@ -2,9 +2,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Search Ads</title>
+    <jsp:include page="/WEB-INF/partials/head.jsp">
+        <jsp:param name="title" value="Your Profile" />
+    </jsp:include>
 </head>
 <body>
+<jsp:include page="/WEB-INF/partials/logout-navbar.jsp" />
 
 <div class="page-wrapper">
     <div class="container">
@@ -20,8 +23,8 @@
                 </c:if>
                 <h1>Find an ad!</h1>
                 <form action="/ads/search" method="post">
-                    <input type="text" name="search" placeholder="search">
-                    <button type="submit">Search</button>
+                    <input class="rounded" type="text" name="search" placeholder="search">
+                    <button class="btn btn-primary" role="button">Search</button>
                 </form>
             </div>
         </div>
